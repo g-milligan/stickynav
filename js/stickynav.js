@@ -4,8 +4,7 @@ var stickyNav=(function(){
 
     //private vars
     var theMobileWidth, stickyElementSelectors;
-    var bodEl=jQuery('body:first');
-    var windowResize_timeout, windowScroll_timeout;
+    var windowResize_timeout, windowScroll_timeout, background_color, bodEl;
 
     //fires only once on page load to init sticky nav
     var initOnceStickyNav=function(){
@@ -31,12 +30,16 @@ var stickyNav=(function(){
             }
         }
 
+        var stickyBg=jQuery('.sticky-bg:first');
+
         //if any z-indexes were specified, set the background z-index to be 1 less than the lowest z-index
         if(lowestZindex!=undefined){
-            var stickyBg=jQuery('.sticky-bg:first');
             stickyBg.css('z-index', (lowestZindex-1));
         }
-
+        //if the background color was specified
+        if(background_color!=undefined){
+          stickyBg.css({"background-color":background_color});
+        }
         //init the events
         initOnceEvents();
     };
@@ -182,22 +185,30 @@ var stickyNav=(function(){
     //public
     return {
         init:function(args){
-            var isEnabled=true;
-            if(args.hasOwnProperty('is_enabled')){
-                isEnabled=args['is_enabled']();
-            }
-            if(isEnabled) {
-                if (args.hasOwnProperty('mobile_width')) {
-                    theMobileWidth = args['mobile_width'];
-                }
-                if (args.hasOwnProperty('sticky_elements')) {
-                    stickyElementSelectors = args['sticky_elements'];
-                }
-                if (theMobileWidth != undefined && stickyElementSelectors != undefined) {
-                    jQuery(window).ready(function () {
-                        updateStickyNav(true);
-                    });
-                }
+            bodEl=jQuery('body:first');
+            if(bodEl.length>0){
+              var isEnabled=true;
+              if(args.hasOwnProperty('is_enabled')){
+                  isEnabled=args['is_enabled']();
+              }
+              if(isEnabled) {
+                  if (args.hasOwnProperty('mobile_width')) {
+                      theMobileWidth = args['mobile_width'];
+                  }
+                  if (args.hasOwnProperty('sticky_elements')) {
+                      stickyElementSelectors = args['sticky_elements'];
+                  }
+                  if(args.hasOwnProperty('background_color')){
+                      background_color=args['background_color'];
+                  }
+                  if (theMobileWidth != undefined && stickyElementSelectors != undefined) {
+                      jQuery(window).ready(function () {
+                          updateStickyNav(true);
+                      });
+                  }
+              }
+            }else{
+              console.log('<body> tag not selected by sticky nav... page not fully loaded?');
             }
         }
     };

@@ -1,11 +1,12 @@
 .sticky-nav-enabled .sticky-bg{
+  background-color:#fff; /*overwrite in javascript init*/
   position:fixed;top:0;left:0;right:0;
   margin:auto;
   z-index: 999;
 }
 
 .sticky-nav-enabled .sticky-element{
-  background-color:transparent;
+  background-color:transparent !important;
   position:fixed;left:0;right:0;
   margin:auto;
   z-index: 999;

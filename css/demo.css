@@ -1,0 +1,18 @@
+body{
+    font-family:Arial;font-size:14px;line-height:20px;
+}
+
+.head_sample{
+    background-color:#9c8080
+}
+
+.head_sample .bar1_sample,
+.head_sample .bar2_sample{
+    display:block;
+    height:40px;line-height:40px;
+    font-size:20px;text-align:center;
+}
+
+.head_sample .bar2_sample{
+    background-color:#7f8d9b;
+}
