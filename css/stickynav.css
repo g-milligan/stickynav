@@ -1,0 +1,12 @@
+.sticky-nav-enabled .sticky-bg{
+  position:fixed;top:0;left:0;right:0;
+  margin:auto;
+  z-index: 999;
+}
+
+.sticky-nav-enabled .sticky-element{
+  background-color:transparent;
+  position:fixed;left:0;right:0;
+  margin:auto;
+  z-index: 999;
+}

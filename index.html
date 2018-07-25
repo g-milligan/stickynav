@@ -1,0 +1,58 @@
+<html>
+<head>
+  <title>Sticky Nav</title>
+  <link rel="stylesheet" href="css/stickynav.css" />
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/stickynav.js"></script>
+</head>
+<body>
+
+  <div class="head_sample">
+    <div class="bar1_sample">Make this sticky</div>
+    <div class="bar2_sample">Not sticky</div>
+  </div>
+
+
+  <div id="lipsum">
+  <p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt pharetra nulla, eu dignissim erat imperdiet sed. Sed eget consectetur mauris. In ultrices orci massa, sit amet maximus nunc tincidunt ac. Fusce vestibulum aliquet augue, a interdum purus viverra non. Aliquam ornare arcu risus, ac ultrices nibh sollicitudin vel. Fusce semper neque lorem, eget varius diam pulvinar eu. Integer interdum gravida ipsum sit amet imperdiet. Quisque imperdiet, libero nec malesuada feugiat, magna neque malesuada massa, vitae pulvinar diam sapien eu urna. Vivamus mauris quam, congue eget lacinia a, auctor vitae tellus. Nam vel egestas enim. Donec posuere maximus lectus nec ornare. Sed nec pharetra magna. Fusce in eros varius, sagittis lacus commodo, rutrum massa. Aliquam pharetra maximus mi sed accumsan. Etiam vehicula, odio ac ultrices mattis, erat lacus fermentum leo, eget varius ex est malesuada nisl. Praesent faucibus nisl magna, mollis feugiat ante accumsan dictum.
+  </p>
+  <p>
+  Nam tempus velit efficitur, aliquam urna ut, tristique ligula. Maecenas cursus ligula vitae dui tincidunt, eget tincidunt urna sagittis. Donec facilisis ornare elit, a cursus elit rutrum at. Integer ac consequat tortor. In ut dignissim metus, at vestibulum tortor. Aliquam sed odio sodales tortor suscipit ultrices. Suspendisse scelerisque tellus enim, vitae egestas sem tempus ac. Donec in ultricies nunc, in finibus nibh.
+  </p>
+  <p>
+  Sed interdum gravida mauris a vestibulum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris eu pulvinar sem. Curabitur condimentum id nibh eu aliquam. Cras sed laoreet eros. Proin venenatis risus ligula, sit amet mattis est euismod vel. Sed ut libero mollis, posuere tellus quis, imperdiet orci. Morbi in felis porttitor, fermentum nunc a, lobortis augue. Duis in euismod ex. Sed sollicitudin metus et turpis condimentum, in malesuada ligula faucibus.
+  </p>
+  <p>
+  Sed non risus et ligula tristique congue et eu elit. Nulla ac ornare enim. Aenean at erat libero. Donec ut lacus vitae neque eleifend mollis. Aliquam rutrum porta purus. Nulla porttitor volutpat lectus vel vestibulum. Donec vestibulum ultricies ipsum a commodo.
+  </p>
+  <p>
+  Suspendisse non sollicitudin ligula. Sed euismod pellentesque massa sit amet cursus. Mauris congue justo sit amet felis venenatis ultrices. Pellentesque nec consectetur massa. Fusce mattis, elit eu ultrices fermentum, ligula leo feugiat lorem, vel tincidunt ipsum lorem sed leo. Maecenas augue dui, tempus vel arcu ac, accumsan maximus mauris. Proin vitae sem rutrum, euismod risus nec, dignissim ligula. Ut vel scelerisque massa, ultrices efficitur magna. Cras vitae scelerisque sem, quis feugiat metus. Aliquam nec feugiat lectus. In hac habitasse platea dictumst. Sed vel lectus maximus, sollicitudin eros a, accumsan nulla. Quisque at consectetur ex.
+  </p></div>
+
+
+  <script type="text/javascript">/*<![CDATA[*/
+    jQuery(document).ready(function(){
+
+
+      //init the sticky nav
+      stickyNav.init({
+          is_enabled:function(){ //custom logic to determine if sticky nav is enabled
+              return true;
+          },
+          mobile_width:767, //sticky nav is turned off at and below mobile width
+          sticky_elements:[ //define which elements should be frozen (sticky) at the top of the page
+              {
+                  selector:'.head_sample .bar1_sample:first',
+                  zindex:899
+              }
+              //optional additional sticky elements to stack after the previous
+          ]
+      });
+
+
+    });
+  /*]]>*/</script>
+
+</body>
+</html>
